@@ -4,6 +4,7 @@
         <title>Calculadora</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="calc.js"></script>
         <script type="text/javascript">
             function saludar() {
                 var nombre = $('#nombre').val();
@@ -15,13 +16,7 @@
     <body>
         <h1>Intento de calculadora</h1>
         <div id="calculadora">
-            <div id="pantalla">Esta es la pantalla</div><br>
-            <button id="MC">MC</button>
-            <button id="MC">MR</button>
-            <button id="MC">M+</button>
-            <button id="MC">M-</button>
-            <button id="MC">MS</button>
-            <button id="MC">M-</button>
+            <div id="pantalla">0</div><br>
             <table id="matrix">
                 <tr>
                     <td><button id="b1">%</button></td>
@@ -33,31 +28,31 @@
                     <td><button id="b1">CE</button></td>
                     <td><button id="b2">C</button></td>
                     <td><button id="b3"><</button></td>
-                    <td><button id="b4">÷</button></td>
+                    <td><button id="b4" onclick="imprimir('/')">÷</button></td>
                 </tr>
                 <tr>
-                    <td><button id="b1">7</button></td>
-                    <td><button id="b2">8</button></td>
-                    <td><button id="b3">9</button></td>
-                    <td><button id="b4">X</button></td>
+                    <td><button id="b1" onclick="imprimir(7)">7</button></td>
+                    <td><button id="b2" onclick="imprimir(8)">8</button></td>
+                    <td><button id="b3" onclick="imprimir(9)">9</button></td>
+                    <td><button id="b4" onclick="imprimir('x')">X</button></td>
                 </tr>
                 <tr>
-                    <td><button id="b1">4</button></td>
-                    <td><button id="b2">5</button></td>
-                    <td><button id="b3">6</button></td>
-                    <td><button id="b4">-</button></td>
+                    <td><button id="b1" onclick="imprimir(4)">4</button></td>
+                    <td><button id="b2" onclick="imprimir(5)">5</button></td>
+                    <td><button id="b3" onclick="imprimir(6)">6</button></td>
+                    <td><button id="b4" onclick="imprimir('-')">-</button></td>
                 </tr>
                 <tr>
-                    <td><button id="b1">1</button></td>
-                    <td><button id="b2">2</button></td>
-                    <td><button id="b3">3</button></td>
-                    <td><button id="b4">+</button></td>
+                    <td><button id="b1" onclick="imprimir(1)">1</button></td>
+                    <td><button id="b2" onclick="imprimir(2)">2</button></td>
+                    <td><button id="b3" onclick="imprimir(3)">3</button></td>
+                    <td><button id="b4" onclick="imprimir('+')">+</button></td>
                 </tr>
                 <tr>
                     <td><button id="b1">±</button></td>
-                    <td><button id="b2">0</button></td>
+                    <td><button id="b2" onclick="imprimir(0)">0</button></td>
                     <td><button id="b3">,</button></td>
-                    <td><button id="b4">=</button></td>
+                    <td><button id="b4" onclick="solve()">=</button></td>
                 </tr>
             </table>
         </div>
