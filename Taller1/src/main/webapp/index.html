@@ -19,39 +19,39 @@
             <div id="pantalla">0</div><br>
             <table id="matrix">
                 <tr>
-                    <td><button id="b1">%</button></td>
-                    <td><button id="b2">√</button></td>
-                    <td><button id="b3">x<sup>2</sup></button></td>
-                    <td><button id="b4">1/x</button></td>
+                    <td><button id="b1" onclick="promedio('%')">%</button></td>
+                    <td><button id="b2" onclick="raiz()">√</button></td>
+                    <td><button id="b3"  onclick=" cuadrado()">x<sup>2</sup></button></td>
+                    <td><button id="b4"  onclick="inverso()">1/x</button></td>
                 </tr>
                 <tr>
-                    <td><button id="b1">CE</button></td>
-                    <td><button id="b2">C</button></td>
-                    <td><button id="b3"><</button></td>
-                    <td><button id="b4" onclick="imprimir('/')">÷</button></td>
+                    <td><button id="b1" onclick="BorrarTodo()">CE</button></td>
+                    <td><button id="b2" onclick="BorrarTodo()">C</button></td>
+                    <td><button id="b3" onclick="Borrar()"><</button></td>
+                    <td><button id="b4" onclick="writeOperator('/')">÷</button></td>
                 </tr>
                 <tr>
-                    <td><button id="b1" onclick="imprimir(7)">7</button></td>
-                    <td><button id="b2" onclick="imprimir(8)">8</button></td>
-                    <td><button id="b3" onclick="imprimir(9)">9</button></td>
-                    <td><button id="b4" onclick="imprimir('x')">X</button></td>
+                    <td><button id="b1" onclick="writeNumber(7)">7</button></td>
+                    <td><button id="b2" onclick="writeNumber(8)">8</button></td>
+                    <td><button id="b3" onclick="writeNumber(9)">9</button></td>
+                    <td><button id="b4" onclick="writeOperator('*')">X</button></td>
                 </tr>
                 <tr>
-                    <td><button id="b1" onclick="imprimir(4)">4</button></td>
-                    <td><button id="b2" onclick="imprimir(5)">5</button></td>
-                    <td><button id="b3" onclick="imprimir(6)">6</button></td>
-                    <td><button id="b4" onclick="imprimir('-')">-</button></td>
+                    <td><button id="b1" onclick="writeNumber(4)">4</button></td>
+                    <td><button id="b2" onclick="writeNumber(5)">5</button></td>
+                    <td><button id="b3" onclick="writeNumber(6)">6</button></td>
+                    <td><button id="b4" onclick="writeOperator('-')">-</button></td>
                 </tr>
                 <tr>
-                    <td><button id="b1" onclick="imprimir(1)">1</button></td>
-                    <td><button id="b2" onclick="imprimir(2)">2</button></td>
-                    <td><button id="b3" onclick="imprimir(3)">3</button></td>
-                    <td><button id="b4" onclick="imprimir('+')">+</button></td>
+                    <td><button id="b1" onclick="writeNumber(1)">1</button></td>
+                    <td><button id="b2" onclick="writeNumber(2)">2</button></td>
+                    <td><button id="b3" onclick="writeNumber(3)">3</button></td>
+                    <td><button id="b4" onclick="writeOperator('+')">+</button></td>
                 </tr>
                 <tr>
-                    <td><button id="b1">±</button></td>
-                    <td><button id="b2" onclick="imprimir(0)">0</button></td>
-                    <td><button id="b3">,</button></td>
+                    <td><button id="b1" onclick="masmenos()">±</button></td>
+                    <td><button id="b2" onclick="writeNumber(0)">0</button></td>
+                    <td><button id="b3" onclick="comma()">,</button></td>
                     <td><button id="b4" onclick="solve()">=</button></td>
                 </tr>
             </table>
