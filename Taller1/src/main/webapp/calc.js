@@ -8,7 +8,11 @@ function writeNumber(n){
 };
 function writeOperator(n){
     var text = pantalla.textContent;
-    pantalla.innerHTML=$.isNumeric(text.slice(-1))?text+n:text;
+    var lastChar = text.slice(-1).toString();
+    switch (n) {
+        case '-':pantalla.innerHTML=(lastChar.match(/[\*\+]/g) || $.isNumeric(lastChar))?text+n:text;break;
+        default:pantalla.innerHTML=$.isNumeric(lastChar)?text+n:text;break;
+    }
 };
 
 function comma(){
@@ -19,6 +23,31 @@ function comma(){
     }
 };
 
+function moreLess(){
+    var result = eval(pantalla.textContent).toString();
+    console.log(result);
+    pantalla.innerHTML=result.includes('-')?result.replace(/\-/g,""):'-'+result;
+};
+
+function squareRoot(){
+    var result = eval(pantalla.textContent).toString();
+    if (!result.includes('-')) {
+        pantalla.innerHTML=Math.sqrt(result);
+    };
+};
+
+function square(){
+    pantalla.innerHTML=Math.pow(eval(pantalla.textContent),2);
+};
+
+function reciprocal(){
+    pantalla.innerHTML=1/eval(pantalla.textContent);
+};
+
+function percentage(){
+    pantalla.innerHTML=eval(pantalla.textContent)/100;
+}
+
 function BorrarTodo(){
     pantalla.innerHTML="0";
 };
@@ -28,5 +57,7 @@ function Borrar(){
 };
 
 function solve(){
-    pantalla.innerHTML = eval(pantalla.textContent.replace(/x/g , "*"));
+    pantalla.innerHTML = eval(pantalla.textContent);
 };
+
+
