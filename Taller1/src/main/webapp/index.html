@@ -5,12 +5,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="calc.js"></script>
-        <script type="text/javascript">
-            function saludar() {
-                var nombre = $('#nombre').val();
-                $('h1').html('Hello World ' + nombre + '!');
-            }
-        </script>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
@@ -19,10 +13,10 @@
             <div id="pantalla">0</div><br>
             <table id="matrix">
                 <tr>
-                    <td><button id="b1" onclick="promedio('%')">%</button></td>
-                    <td><button id="b2" onclick="raiz()">√</button></td>
-                    <td><button id="b3"  onclick=" cuadrado()">x<sup>2</sup></button></td>
-                    <td><button id="b4"  onclick="inverso()">1/x</button></td>
+                    <td><button id="b1" onclick="percentage()">%</button></td>
+                    <td><button id="b2" onclick="squareRoot()">√</button></td>
+                    <td><button id="b3"  onclick=" square()">x<sup>2</sup></button></td>
+                    <td><button id="b4"  onclick="reciprocal()">1/x</button></td>
                 </tr>
                 <tr>
                     <td><button id="b1" onclick="BorrarTodo()">CE</button></td>
@@ -49,7 +43,7 @@
                     <td><button id="b4" onclick="writeOperator('+')">+</button></td>
                 </tr>
                 <tr>
-                    <td><button id="b1" onclick="masmenos()">±</button></td>
+                    <td><button id="b1" onclick="moreLess()">±</button></td>
                     <td><button id="b2" onclick="writeNumber(0)">0</button></td>
                     <td><button id="b3" onclick="comma()">,</button></td>
                     <td><button id="b4" onclick="solve()">=</button></td>
