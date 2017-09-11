@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/*A Flat Design Login Page by Codelator.com*/
+
+body{
+    background: rgba(46,107,60,1);
+    background: -moz-linear-gradient(top, rgba(46,107,60,1) 0%, rgba(44,51,53,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(46,107,60,1)), color-stop(100%, rgba(44,51,53,1)));
+    background: -webkit-linear-gradient(top, rgba(46,107,60,1) 0%, rgba(44,51,53,1) 100%);
+    background: -o-linear-gradient(top, rgba(46,107,60,1) 0%, rgba(44,51,53,1) 100%);
+    background: -ms-linear-gradient(top, rgba(46,107,60,1) 0%, rgba(44,51,53,1) 100%);
+    background: linear-gradient(to bottom, rgba(46,107,60,1) 0%, rgba(44,51,53,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e6b3c', endColorstr='#2c3335', GradientType=0 );
+    text-align:center;
+}
+
+#loginform{
+    margin-top:150px;
+    margin-left:auto;
+    margin-right:auto;
+    width:270px;
+}
+
+.input{
+    width:270px;
+    padding:15px 25px;
+    background: #f5f5f5;
+    border:none;
+    border-radius: 5px;
+    color: #333;
+    font-size: 14px;
+    margin-top:15px;
+  
+}
+
+
+.input:focus{
+    -webkit-box-shadow: 0px 0px 18px -1px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 0px 18px -1px rgba(0,0,0,1);
+    box-shadow: 0px 0px 18px -1px rgba(0,0,0,1);
+}
+
+.loginbutton{
+    background-color:#ffdd00;
+    border-radius:5px/5px;
+    -webkit-border-radius:5px/5px;
+    -moz-border-radius:5px/5px;
+    color:#333;
+    display:inline-block;
+    font-size:18px;
+    font-weight:bold;
+    width:270px;
+    text-align:center;
+    line-height:50px;
+    text-decoration:none;
+    height:50px;
+    margin-top:20px;
+    margin-bottom:20px;
+    border:none;
+    outline:0;
+    cursor: pointer;
+}
+
+.loginbutton:active {
+    position:relative;
+    top:1px;
+}
+
+.loginbutton:hover{
+    background-color:#e5bf05;
+}
+
