@@ -21,8 +21,11 @@ public class ApplicationConfig extends Application {
 
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(co.edu.uptc.sw2.taller5.servicio.CarreraServicio.class);
+        resources.add(co.edu.uptc.sw2.taller5.servicio.EstudianteServicio.class);
         resources.add(co.edu.uptc.sw2.taller5.servicio.FacultadServicio.class);
+        resources.add(co.edu.uptc.sw2.taller5.servicio.MateriaServicio.class);
         resources.add(co.edu.uptc.sw2.taller5.servicio.MunicipioServicio.class);
+        resources.add(co.edu.uptc.sw2.taller5.servicio.ProfesorServicio.class);
         resources.add(org.netbeans.rest.application.config.GsonMessageBodyHandler.class);
     }
 
