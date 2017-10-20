@@ -32,16 +32,6 @@ module.controller('MateriaCtrl', ['$scope', '$filter', '$http', function ($scope
             });
         };
         $scope.listarProfesor();
-        $scope.listarHorario = function () {
-            $http.get('./webresources/Horario', {})
-                    .success(function (data, status, headers, config) {
-                        $scope.listaHorario = data;
-                    }).error(function (data, status, headers, config) {
-                alert('Error al consultar la informaci\xf3n de horario, por favor intente m\xe1s tarde');
-            });
-        };
-        $scope.listarHorario();
-
 
         $scope.listar();
         //guardar
