@@ -60,15 +60,7 @@ public class ProveedorInformacion<T> {
                 almacenamiento.get(object.getClass().getName()).put(secuencia.get(object.getClass().getName()),object);
             }
             return (T) almacenamiento.get(object.getClass().getName()).get(secuencia.get(object.getClass().getName()));
-        } catch (NoSuchMethodException ex) {
-            Logger.getLogger(ProveedorInformacion.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SecurityException ex) {
-            Logger.getLogger(ProveedorInformacion.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(ProveedorInformacion.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(ProveedorInformacion.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InvocationTargetException ex) {
+        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             Logger.getLogger(ProveedorInformacion.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
