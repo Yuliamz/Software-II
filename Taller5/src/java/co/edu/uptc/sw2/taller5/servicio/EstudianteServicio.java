@@ -1,7 +1,11 @@
 package co.edu.uptc.sw2.taller5.servicio;
 
 import co.edu.uptc.sw2.taller5.dto.*;
+import java.net.HttpURLConnection;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
@@ -15,7 +19,8 @@ import javax.ws.rs.core.*;
 public class EstudianteServicio {
 
     /**
-     * retorna una lista con los Estudiante que se encuentran en la base de datos
+     * retorna una lista con los Estudiante que se encuentran en la base de
+     * datos
      *
      * @return retorna una lista de EstudianteDTO
      * @generated
@@ -23,6 +28,62 @@ public class EstudianteServicio {
     @GET
     public List<EstudianteDTO> obtenerTodosEstudiantes() {
         return ProveedorInformacion.instance().obtenerTodos(EstudianteDTO.class);
+    }
+
+    /**
+     * retorna una lista con los Estudiantes filtrados por nombre y apellido
+     *
+     * @return retorna una lista de EstudianteDTO
+     * @generated
+     */
+    @GET
+    @Path("/buscar")
+    public List<EstudianteDTO> obtenerTodosEstudiantesFiltrado(@QueryParam("nombre") String nombre,
+                                                               @QueryParam("apellido") String apellido) {
+        List<EstudianteDTO> dTOs = ProveedorInformacion.instance().obtenerTodos(EstudianteDTO.class);    
+        
+        if ((nombre==null || nombre.isEmpty()) && (apellido==null  || apellido.isEmpty())) {
+            return new ArrayList<>();
+        }
+        
+        if((apellido==null  || apellido.isEmpty()) && (nombre!=null && !nombre.isEmpty())){
+            return estudiantesPorNombre(nombre);
+        }
+        
+        if ((nombre==null || nombre.isEmpty()) && (apellido!=null && !apellido.isEmpty())) {
+            return estudiantesPorApellido(apellido);
+        }
+        
+        return dTOs.stream()
+                .filter(e -> e.getNombres().contains(nombre) && e.getApellidos().contains(apellido))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * retorna una lista con los Estudiantes filtrados por nombre
+     *
+     * @return retorna una lista de EstudianteDTO
+     * @generated
+     */
+
+    public List<EstudianteDTO> estudiantesPorNombre(String nombre) {
+            List<EstudianteDTO> dTOs = ProveedorInformacion.instance().obtenerTodos(EstudianteDTO.class);
+            return dTOs.stream()
+                    .filter(e -> e.getNombres().contains(nombre))
+                    .collect(Collectors.toList());
+    }
+    
+    /**
+     * retorna una lista con los Estudiantes filtrados por nombre
+     *
+     * @return retorna una lista de EstudianteDTO
+     * @generated
+     */
+    public List<EstudianteDTO> estudiantesPorApellido(@QueryParam("apellido") String apellido) {
+            List<EstudianteDTO> dTOs = ProveedorInformacion.instance().obtenerTodos(EstudianteDTO.class);
+            return dTOs.stream()
+                    .filter(e -> e.getApellidos().contains(apellido))
+                    .collect(Collectors.toList());
     }
 
     /**
