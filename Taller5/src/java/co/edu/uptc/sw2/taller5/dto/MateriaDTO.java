@@ -37,19 +37,6 @@ public class MateriaDTO {
      * @generated
      */
     private ProfesorDTO profesor;
-
-    private List<HorarioDTO> horario;
-    
-    public List<HorarioDTO> getHorario(){
-    	if(this.horario==null){
-    		horario=new ArrayList<HorarioDTO>();
-    	}
-    	return horario;
-    }
-    
-    public void setHorario(List<HorarioDTO> horario){
-    	this.horario=horario;
-    }
     
     /**
      * @generated
