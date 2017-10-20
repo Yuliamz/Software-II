@@ -1,9 +1,10 @@
 <div class="btn-group">
     <button type="button" class="btn btn-default" ng-click="nuevo()">Nuevo Estudiante</button>
-    <button type="button" class="btn btn-default" ng-click="cancelar()">Listar Estudiante</button>
+    <button type="button" class="btn btn-default" ng-click="mostrar()">Listar Estudiante</button>
+    <button type="button" class="btn btn-default" ng-click="buscar()">Buscar Estudiante</button>
 </div>
 
-<div class="panel panel-primary" ng-hide="panelEditar">
+<div class="panel panel-primary" ng-show="panelListar">
     <div class="panel-heading">Parametrizaci&oacute;n de Estudiante</div>
     <div class="panel-body">
         <table class="resultados table table-striped">
@@ -40,7 +41,8 @@
                 <td>{{row.fechaNacimiento| date: 'dd/MM/yyyy'}}</td>
 
 
-                <td class="row">{{row.carrera.nombre}}</td>              	<td class="row">{{row.lugarNacimiento.nombre}}</td>              
+                <td class="row">{{row.carrera.nombre}}</td>              	
+                <td class="row">{{row.lugarNacimiento.nombre}}</td>              
                 <td class="row">
                     <button type="button" class="btn btn-default" ng-click="editar(row)">
                         <span class="glyphicon glyphicon-pencil"></span>Editar
@@ -56,7 +58,7 @@
     </div>
 </div>
 
-<div class="panel panel-primary" ng-show="panelEditar">
+<div class="panel panel-primary" ng-show="panelCrear">
     <div class="panel-heading">Parametrizaci&oacute;n de Estudiante</div>
     <div class="panel-body">
         <form role="form" id="formularioEditar">
@@ -111,10 +113,10 @@
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                     </div>
                     <script>
-                        $('#fechaNacimiento').datepicker({format: 'dd/mm/yyyy', language: "es"})
-                                .on('changeDate', function (ev) {
-                                dp_fechaNacimiento.hide();
-                                }).data('datepicker');
+                                $('#fechaNacimiento').datepicker({format: 'dd/mm/yyyy', language: "es"})
+                                        .on('changeDate', function (ev) {
+                                            dp_fechaNacimiento.hide();
+                                        }).data('datepicker');
                     </script>
                     <div ng-show="errores.fechaNacimiento">{{errores.fechaNacimiento}}</div>
                 </div>
@@ -140,9 +142,79 @@
             </div>
             <div class="btn-group">
                 <button type="button" class="btn btn-default" ng-click="guardar()">Aceptar</button>
-                <button type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+                <button type="button" class="btn btn-default" ng-click="listar()">Cancelar</button>
             </div>
         </form>
+    </div>
+</div>
+
+
+<div class="panel panel-primary" ng-show="panelBuscar">
+    <div class="panel-heading">Parametrizaci&oacute;n de Estudiante</div>
+    <div class="panel-body">
+        <form name="myForm">
+            <label>
+                <input type="radio" checked="" ng-model="opcionBuscar" value="Nombre" ng-click="cambio()" >Nombre
+            </label>
+            <label>
+                <input type="radio" ng-model="opcionBuscar" value="Apellido" ng-click="cambio()">Apellido
+            </label>
+            <label>
+                <input type="radio" ng-model="opcionBuscar" value="Nombre y Apellido" ng-click="cambio()">Nombre y Apellido
+            </label>
+        </form>
+        
+        <div class="row">
+            <div class="col-md-5">
+                <input class="form-control col-md-5" ng-model="nombres"  placeholder="Nombres" ng-disabled="textNombre"/>
+            </div>
+        
+            <div class="col-md-5">
+                <input class="form-control col-md-5" ng-model="apellidos"  placeholder="Apellidos" ng-disabled="textApellido"/>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" ng-click="busquedaFiltrada()">Buscar</button>
+            </div>
+            
+        </div>
+
+        <table class="resultados table table-striped">
+            <tr>
+                <th>
+                    nombres
+                </th>				<th>
+                    apellidos
+                </th>				<th>
+                    codigo
+                </th>				<th>
+                    documento
+                </th>				<th>
+                    fechaNacimiento
+                </th>
+                <th>
+                    carrera
+                </th>				<th>
+                    lugarNacimiento
+                </th>
+            </tr>
+            <tr dir-paginate="row in listaFiltrada|itemsPerPage:10">
+                <td>{{row.nombres}}</td>
+
+                <td>{{row.apellidos}}</td>
+
+                <td>{{row.codigo}}</td>
+
+                <td>{{row.documento}}</td>
+
+                <td>{{row.fechaNacimiento| date: 'dd/MM/yyyy'}}</td>
+
+
+                <td class="row">{{row.carrera.nombre}}</td>              	
+                <td class="row">{{row.lugarNacimiento.nombre}}</td>              
+            </tr>
+        </table>
+        <div dir-pagination-controls></div>
+        <br/>
     </div>
 </div>
 
